@@ -23,7 +23,8 @@ A task deadline visualization tool written in python / tkinter
 
 Available on pip - `pip install bubble_task`
 
-1. Windows only due to \*nix systems being inconsistent.1. Install [Python 3.10+](https://www.python.org/downloads/) and make sure to include `IDLE, pip, tcl/tk, and check "Add python 3.* to PATH"`
+1. Windows only due to \*nix systems being inconsistent.
+1. Install [Python 3.10+](https://www.python.org/downloads/) and make sure to include `IDLE, pip, tcl/tk, and check "Add python 3.* to PATH"`
 1. Reboot your computer
 1. Open a command prompt
 1. Type the following command to install with pip: `pip install bubble_task`
