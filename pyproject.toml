@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "BubbleTask"
-version = "0.0.3"
+version = "0.0.4"
 description = "Configurable, visual task-planning tool that lives on your desktop background."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = ['Development Status :: 1 - Planning', 'Environment :: Console', 'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)', 'Natural Language :: English', 'Operating System :: OS Independent', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: 3.10']
-dependencies = ['tkcalendar', 'tkTimePicker']
+dependencies = ['tkcalendar', 'tkTimePicker', 'py_simple_ttk']
 keywords = []
 
 [project.urls]
