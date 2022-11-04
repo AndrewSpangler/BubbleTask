@@ -21,7 +21,7 @@ A task deadline visualization tool written in python / tkinter
 
 ## Installation<a name="mark2"></a>[^](#mark0)
 
-Available on pip - `pip install bubble_task`
+Available on pip - `pip install BubbleTask`
 
 1. Windows only due to \*nix systems being inconsistent.
 1. Install [Python 3.10+](https://www.python.org/downloads/) and make sure to include `IDLE, pip, tcl/tk, and check "Add python 3.* to PATH"`
