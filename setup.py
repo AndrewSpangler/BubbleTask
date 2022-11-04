@@ -71,7 +71,8 @@ if __name__ == "__main__":
 
     # Regenerate requirements.txt
     with open(join(root, "requirements.txt"), "w+") as f:
-        f.writelines(requirements)
+        for r in requirements:
+            f.write(f"{r}\n")
 
     # was getting error when reusing generated value rather than read from file
     with open(join(root, "README.md"), "r") as f:
