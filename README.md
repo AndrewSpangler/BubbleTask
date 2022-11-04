@@ -23,10 +23,6 @@ A task deadline visualization tool written in python / tkinter
 
 Available on pip - `pip install bubble_task`
 
-## Credits<a name="mark3"></a>[^](#mark1)
-
-Original concept and UI consultation by Greg Frederick
-
 1. Windows only due to \*nix systems being inconsistent.1. Install [Python 3.10+](https://www.python.org/downloads/) and make sure to include `IDLE, pip, tcl/tk, and check "Add python 3.* to PATH"`
 1. Reboot your computer
 1. Open a command prompt
@@ -37,6 +33,10 @@ Original concept and UI consultation by Greg Frederick
 1. Edit the batch file in notepad (or other plaintext editor) to contain the following text : `python -m BubbleTask`
 1. Double-Click the bat file to launch the program
 1. You can make another folder + bat file to create a new instance of the program (Eg for a separate set of projects like work vs home etc.)
+## Credits<a name="mark3"></a>[^](#mark1)
+
+Original concept and UI consultation by Greg Frederick
+
 # Changelog<a name="mark4"></a>[^](#mark0)
 
 ## 0.0.4<a name="mark5"></a>[^](#mark4)

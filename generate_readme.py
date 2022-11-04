@@ -32,7 +32,7 @@ def generate_readme(tables, changelog: dict):
     gen.increase_toc_depth()
     gen.add_heading_2("Installation")
     gen.add_paragraph(install_message)
+    gen.add_unordered_list(instructions)
     gen.add_heading_2("Credits")
     gen.add_paragraph(credits)
-    gen.add_unordered_list(instructions)
     return gen.assemble()
