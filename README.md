@@ -3,8 +3,8 @@
 ***Configurable, visual task-planning tool that lives on your desktop background.***
 
 - [About](#mark1)
-	- [Installation](#mark2)
-	- [Credits](#mark3)
+- [Installation](#mark2)
+- [Credits](#mark3)
 - [Changelog](#mark4)
 	- [0.0.4](#mark5)
 	- [0.0.3](#mark6)
@@ -19,7 +19,7 @@
 
 A task deadline visualization tool written in python / tkinter
 
-## Installation<a name="mark2"></a>[^](#mark1)
+## Installation<a name="mark2"></a>[^](#mark0)
 
 Available on pip - `pip install bubble_task`
 
@@ -33,7 +33,7 @@ Available on pip - `pip install bubble_task`
 1. Edit the batch file in notepad (or other plaintext editor) to contain the following text : `python -m BubbleTask`
 1. Double-Click the bat file to launch the program
 1. You can make another folder + bat file to create a new instance of the program (Eg for a separate set of projects like work vs home etc.)
-## Credits<a name="mark3"></a>[^](#mark1)
+## Credits<a name="mark3"></a>[^](#mark0)
 
 Original concept and UI consultation by Greg Frederick
 

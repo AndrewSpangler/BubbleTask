@@ -29,7 +29,6 @@ def generate_readme(tables, changelog: dict):
     gen.add_paragraph(image)
     gen.add_heading_2("About")
     gen.add_paragraph(about)
-    gen.increase_toc_depth()
     gen.add_heading_2("Installation")
     gen.add_paragraph(install_message)
     gen.add_unordered_list(instructions)
