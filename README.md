@@ -31,7 +31,7 @@ Available on pip - `pip install BubbleTask`
 1. Create a folder where you want the application to run
 1. Create a text file in the (In Explorer: "right-click->new->Text Document")
 1. Rename that file to "BubbleTask.bat" (Without quotes)
-1. Edit the batch file in notepad (or other plaintext editor) to contain the following text : `python -m BubbleTask`
+1. Edit the batch file in notepad (or other plaintext editor) to contain the following text : `start pythonw.exe -m BubbleTask`
 1. Double-Click the bat file to launch the program
 1. You can make another folder + bat file to create a new instance of the program (Eg for a separate set of projects like work vs home etc.)
 ## Credits<a name="mark3"></a>[^](#mark0)
