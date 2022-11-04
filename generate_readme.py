@@ -3,7 +3,7 @@ from py_simple_readme import readme_generator
 about = "A task deadline visualization tool written in python / tkinter"
 install_message = "Available on pip - `pip install bubble_task`"
 instructions = [
-    "1. Windows only due to \\*nix systems being inconsistent."
+    "1. Windows only due to \\*nix systems being inconsistent.\n"
     '1. Install [Python 3.10+](https://www.python.org/downloads/) and make sure to include `IDLE, pip, tcl/tk, and check "Add python 3.* to PATH"`',
     "1. Reboot your computer",
     "1. Open a command prompt",
