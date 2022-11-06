@@ -31,9 +31,8 @@ class ProjectTab(Tab):
         self.project = project
         self.projects_tab = projects_tab
 
-
-        (header:=ttk.Frame(self)).pack(fill="x", side="top", padx=(20))
-        (header_left:=ttk.Frame(header)).pack(fill="x", side="left")
+        (header := ttk.Frame(self)).pack(fill="x", side="top", padx=(20))
+        (header_left := ttk.Frame(header)).pack(fill="both", side="left", expand=False)
 
         def build_button_menu(title, options):
             (
@@ -80,7 +79,7 @@ class ProjectTab(Tab):
             times_frame := ttk.Labelframe(
                 header_left, text="Times", style="HugeBold.TLabelframe"
             )
-        ).pack(side="top", pady=0, anchor="n", fill="both",expand=True)
+        ).pack(side="top", pady=0, anchor="n", fill="both", expand=True)
 
         self.start_button = TimeSelectionButton(
             times_frame,
@@ -88,7 +87,7 @@ class ProjectTab(Tab):
             default=project.start,
             text="Start ",
         )
-        self.start_button.pack(side="top", fill="x", anchor="n", expand=True)
+        self.start_button.pack(side="top", fill="x", anchor="n", expand=False)
 
         self.deadline_button = TimeSelectionButton(
             times_frame,
@@ -96,7 +95,7 @@ class ProjectTab(Tab):
             default=project.deadline,
             text="Deadline ",
         )
-        self.deadline_button.pack(side="top", fill="x", anchor="n", expand=True)
+        self.deadline_button.pack(side="top", fill="x", anchor="n", expand=False)
 
         self.entry = LabeledSpinbox(
             times_frame,
@@ -104,8 +103,10 @@ class ProjectTab(Tab):
             command=self.on_frequency_update,
             default=str(project.update_delay),
             on_keystroke=True,
+            from_=1,
+            to=1000 * 1000,
             fill="x",
-            expand=True,
+            expand=False,
         )
 
         self.entry.pack(side="top", fill="x")
@@ -117,9 +118,15 @@ class ProjectTab(Tab):
             )
         ).pack(side="right", fill="x", expand=True, pady=0, anchor="n")
 
-        (colors_a := ttk.LabelFrame(colors_frame, text="Project")).pack(side="left", expand=True, fill="y")
-        (colors_b := ttk.LabelFrame(colors_frame, text="Task")).pack(side="left", expand=True, fill="y")
-        (colors_c := ttk.LabelFrame(colors_frame, text="Etc")).pack(side="left", expand=True, fill="y")
+        (colors_a := ttk.LabelFrame(colors_frame, text="Project")).pack(
+            side="left", expand=True, fill="y"
+        )
+        (colors_b := ttk.LabelFrame(colors_frame, text="Task")).pack(
+            side="left", expand=True, fill="y"
+        )
+        (colors_c := ttk.LabelFrame(colors_frame, text="Etc")).pack(
+            side="left", expand=True, fill="y"
+        )
 
         self.proj_bubble_color = ColorPickerButton2(
             colors_a,
@@ -127,7 +134,7 @@ class ProjectTab(Tab):
             self.project.meta["bubble_color"],
             command=self.on_color_change,
         )
-        self.proj_bubble_color.pack(fill="x",expand=True)
+        self.proj_bubble_color.pack(fill="x", expand=True)
 
         self.proj_bubble_overdue_color = ColorPickerButton2(
             colors_a,
@@ -174,6 +181,17 @@ class ProjectTab(Tab):
             on_keystroke=True,
         )
         self.bubble_outline_thickness.pack(fill="x")
+
+        self.bubble_text_size = LabeledSpinbox(
+            colors_a,
+            "Text Size",
+            command=self.on_color_change,
+            from_=12,
+            to=200,
+            default=str(self.project.meta["bubble_text_size"]),
+            on_keystroke=True,
+        )
+        self.bubble_text_size.pack(fill="x")
 
         self.task_bubble_color = ColorPickerButton2(
             colors_b,
@@ -228,6 +246,17 @@ class ProjectTab(Tab):
             on_keystroke=True,
         )
         self.task_outline_thickness.pack(fill="x")
+
+        self.task_text_size = LabeledSpinbox(
+            colors_b,
+            "Text Size",
+            command=self.on_color_change,
+            from_=12,
+            to=200,
+            default=str(self.project.meta["task_text_size"]),
+            on_keystroke=True,
+        )
+        self.task_text_size.pack(fill="x")
 
         self.line_color = ColorPickerButton2(
             colors_c,
@@ -293,9 +322,13 @@ class ProjectTab(Tab):
         self.project.meta["task_radius"] = self.proj_task_radius.get()
         self.project.meta["background_color"] = self.background_color.get()
         self.project.meta["bubble_outline_color"] = self.bubble_outline_color.get()
-        self.project.meta["bubble_outline_thickness"] = self.bubble_outline_thickness.get()
+        self.project.meta[
+            "bubble_outline_thickness"
+        ] = self.bubble_outline_thickness.get()
         self.project.meta["task_outline_color"] = self.task_outline_color.get()
         self.project.meta["task_outline_thickness"] = self.task_outline_thickness.get()
+        self.project.meta["bubble_text_size"] = self.bubble_text_size.get()
+        self.project.meta["task_text_size"] = self.task_text_size.get()
         return self.project.save()
 
     def on_frequency_update(self, val: float) -> bool:

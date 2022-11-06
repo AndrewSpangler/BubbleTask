@@ -1,13 +1,15 @@
 {
 	"name":"BubbleTask",
 	"author":"Andrew Spangler",
-	"version":"0.0.4",
+	"version":"0.0.6",
 	"license":"GPLv3",
 	"email":"AndrewSpangler@users.noreply.github.com",
 	"description":"Configurable, visual task-planning tool that lives on your desktop background.",
 	"requirements":["tkcalendar", "tkTimePicker", "py_simple_ttk", "pillow"],
 	"url":"https://github.com/AndrewSpangler/",
 	"changelog": {
+		"0.0.6":"Make bubbles start in view",
+		"0.0.5":"Make text size configurable",
 		"0.0.4":"Fix readme",
 		"0.0.3":"Fix issue with generated config file.",
 		"0.0.2":"Fix bug with redraw timing value being passed to renderer as a string on new profiles / first launches.",

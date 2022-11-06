@@ -18,6 +18,8 @@ PROJECT_DEFAULTS = {
     "task_outline_color": "#CCCCCCFF",
     "task_outline_thickness": 3,
     "bubble_outline_thickness": 3,
+    "bubble_text_size": 40,
+    "task_text_size": 32,
     "notes": [],
     "tasks": [],
 }
@@ -276,8 +278,8 @@ class LoadedProject(Project):
         #     meta["background_color"] = "#000000"
         # # if meta["background_opacity"] is None:
         # # meta["background_opacity"] = 0
-##        if not meta["bubble_outline_color"]:
-##            meta["bubble_outline_color"] = "#cccccc"
+        ##        if not meta["bubble_outline_color"]:
+        ##            meta["bubble_outline_color"] = "#cccccc"
         # if not meta["task_outline_color"]:
         #     meta["task_outline_color"] = "#cccccc"
         # if not meta["bubble_outline_opacity"]:

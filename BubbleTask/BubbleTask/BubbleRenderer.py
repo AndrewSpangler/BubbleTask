@@ -50,6 +50,7 @@ class BubbleRenderer:
         outline_color,
         outline_thickness,
         text_color,
+        text_size,
         sunset_mode,
         turn_red,
         radius,
@@ -61,17 +62,23 @@ class BubbleRenderer:
         if ratios[1] == -1:
             return
         diameter = 2 * radius
+
+        self.adjusted_resolution = list(i for i in self.resolution)
+        self.adjusted_resolution[1] = self.resolution[1] - diameter
+
         l = (r := ratios[0] * self.resolution[0] + radius) - diameter
         col = hex_to_rgba(color)
         if ratios[1] >= 1:
             if turn_red:
                 col = hex_to_rgba(overdue_color)
             if not sunset_mode:
-                t = (b := self.resolution[1] - 1) - diameter
+                t = (b := self.adjusted_resolution[1] - 1) - diameter
             else:
-                t = (b := ratios[1] * self.resolution[1]) - diameter
+                t = (b := ratios[1] * self.adjusted_resolution[1]) - diameter
         else:
-            t = (b := ratios[1] * self.resolution[1]) - diameter
+            t = (b := ratios[1] * self.adjusted_resolution[1]) - diameter
+        t += diameter
+        b += diameter
 
         draw_list.append(
             (
@@ -85,12 +92,18 @@ class BubbleRenderer:
         )
         x = int((l + r) / 2)
         y = int((t + b) / 2)
+
+        font = ImageFont.truetype(
+            get_asset("fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf"),
+            int(float(text_size)),
+        )
+
         text_draw_list.append(
             (
                 ((x, y), text),
                 {
                     "fill": tuple(hex_to_rgba(text_color)),
-                    "font": FONT,
+                    "font": font,
                     "anchor": "mm",
                     "spacing": 0,
                     "align": "center",
@@ -117,6 +130,7 @@ class BubbleRenderer:
             project.meta["task_outline_color"],
             project.meta["task_outline_thickness"],
             project.meta["task_text_color"],
+            project.meta["task_text_size"],
             prof.get_preference("sunset_mode"),
             prof.get_preference("turn_red"),
             int(project.meta["task_radius"]),
@@ -153,6 +167,7 @@ class BubbleRenderer:
             project.meta["bubble_outline_color"],
             project.meta["bubble_outline_thickness"],
             project.meta["text_color"],
+            project.meta["bubble_text_size"],
             prof.get_preference("sunset_mode"),
             prof.get_preference("turn_red"),
             int(project.meta["bubble_radius"]),

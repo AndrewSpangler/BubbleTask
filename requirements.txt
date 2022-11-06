@@ -1,3 +1,4 @@
 tkcalendar
 tkTimePicker
 py_simple_ttk
+pillow
